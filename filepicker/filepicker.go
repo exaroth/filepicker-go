@@ -22,10 +22,15 @@ func init() {
 const UserAgentID = "filepicker-go 0.1"
 
 // FilepickerURL is a link to filepicker.io service.
-const FilepickerURL = "https://www.filepicker.io/"
+var FilepickerURL = "https://www.filepicker.io/"
 
 // apiURL is a url.URL type representation of FilepickerURL address.
 var apiURL *url.URL
+
+func ReplaceFilepickerURL(addr string) (err error) {
+	apiURL, err = url.Parse(addr)
+	return
+}
 
 // Storage represents cloud storage services supported by filepicker.io client.
 type Storage string
